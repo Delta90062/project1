@@ -24,6 +24,7 @@
     <br>
     <div class="container" style="width: 500px;">
         <h3>PHP Registratie Pagina</h3><br>
+        <form action="" method="post">
 
             <label for="Voornaam">Voornaam</label>
             <input type="text" name="voornaam" class="form-control" required>
@@ -57,6 +58,7 @@
             <input type="submit" name="Registeren" class="btn btn-info" value="Registreren">
             <button type="button" class="btn btn-link"><a href="index.php">Login?</a></button>
             <button type="button" class="btn btn-link"><a href="lostpsw.php">Wachtwoord vergeten?</a></button>
+            </form>
         <br>
     </div>
 </body>

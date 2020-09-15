@@ -1,19 +1,17 @@
--- gooit de database weg
-DROP DATABASE project1;
 -- creëert de database 
 CREATE DATABASE project1;
 -- creëert tables en de columns
-CREATE TABLE Account (
-    id int not null primary key AUTO_INCREMENT,
-    email varchar(255) unique,
-    password varchar(255)
+CREATE TABLE account (
+    id int not null primary key auto_increment,
+    email varchar(255) not null unique,
+    password varchar(255) not null
 );
-CREATE TABLE Persoon (
-    id int not null primary key AUTO_INCREMENT,
-    voornaam varchar(255),
+CREATE TABLE persoon (
+    id int not null primary key auto_increment,
+    voornaam varchar(255) not null,
     tussenvoegsel varchar(255),
-    achternaam varchar(255),
-    username varchar(255),
+    achternaam varchar(255) not null,
+    username varchar(255) not null,
     account_id int not null,
-    FOREIGN KEY (account_id) REFERENCES Account(id)
+    foreign key (account_id) references Account(id)
 );

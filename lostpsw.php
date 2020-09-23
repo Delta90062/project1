@@ -1,5 +1,9 @@
 <?php
 //lost-password.php
+session_start();
+include "db.php";
+
+$db = new DB('localhost', 'root', '', 'project1', 'utf8');
 ?>
 
 <!DOCTYPE html>

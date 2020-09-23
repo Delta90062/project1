@@ -1,5 +1,17 @@
 <?php 
 //index.php
+session_start();
+include "db.php";
+
+$db = new DB('localhost', 'root', '', 'project1', 'utf8');
+
+    if (isset($_POST["login"])) {
+        if (empty($_POST["email"]) || empty($_POST["password"])) {
+            echo "<script type='text/javascript'>alert('Alle velden zijn vereist');</script>";
+        } else {
+            $db->login();
+        }
+    }
 ?>
 
 <!DOCTYPE html>
@@ -19,18 +31,12 @@
 </head>
 <body>
     <br>
-    <?php
-    if(isset($message))
-    {
-        echo '<label class="test-danger">'.$message.'</label>';
-    }
-    ?>
     <div class="container" style="width: 500px;">
         <h3>PHP Login Pagina</h3><br>
         <form action="" method="post">
 
-            <label for="Username">Username</label>
-            <input type="text" name="username" class="form-control">
+        <label for="Email">Email</label>
+            <input type="text" name="email" class="form-control">
             <br>
 
             <label for="Password">Password</label>

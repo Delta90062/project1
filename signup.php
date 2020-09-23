@@ -1,6 +1,9 @@
 <?php
 //signup.php
+session_start();
+include "db.php";
 
+$db = new DB('localhost', 'root', '', 'project1', 'utf8');
 ?>
 
 <!DOCTYPE html>
@@ -46,12 +49,12 @@
             <input type="text" name="username" class="form-control" required>
             <br>
             
-            <label for="Wachtwoord">Wachtwoord</label>
-            <input type="password" name="wachtwoord" class="form-control" required>
+            <label for="password">Wachtwoord</label>
+            <input type="password" name="password" class="form-control" required>
             <br>
 
-            <label for="Password">Herhaal Wachtwoord</label>
-            <input type="password" name="herhaal-wachtwoord" class="form-control" required>
+            <label for="Herhaal-password">Herhaal Wachtwoord</label>
+            <input type="password" name="herhaal-password" class="form-control" required>
             <br>
             
 

@@ -1,13 +1,39 @@
 <?php
-//signup.php
-session_start();
+//registreren.php
+
 include "db.php";
 
-$db = new DB('localhost', 'root', '', 'project1', 'utf8');
+$fieldnames = ['voornaam', 'achternaam', 'email', 'username', 'wachtwoord']; // neem alle values van de name attributes van de input fields op in deze array
+$error = FALSE;
+
+if (isset($_POST["Registreren"])) {
+foreach($fieldnames as $fieldname){
+    if(!isset($_POST[$fieldname]) || empty($_POST[$fieldname])){
+        $error = TRUE;
+    }
+}
+
+if ($error) {
+echo "<script type='text/javascript'>alert('Alle velden zijn vereist');</script>";
+}
+
+if (!$error) {
+    $voornaam = $_POST["voornaam"];
+    $achternaam = $_POST["achternaam"];
+    $email = $_POST["email"];
+    $username = $_POST["username"];
+    $wachtwoord = $_POST["wachtwoord"];
+
+
+    $db = new DB('localhost', 'root', '', 'project1', 'utf8');
+    $db->execute($voornaam, $_POST["tussenvoegsel"], $achternaam, $email, $username, $wachtwoord);
+    }
+}
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,6 +48,7 @@ $db = new DB('localhost', 'root', '', 'project1', 'utf8');
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
 
 </head>
+
 <body>
     <br>
     <br>
@@ -30,7 +57,7 @@ $db = new DB('localhost', 'root', '', 'project1', 'utf8');
         <form action="" method="post">
 
             <label for="Voornaam">Voornaam</label>
-            <input type="text" name="voornaam" class="form-control" required>
+            <input type="text" name="voornaam" class="form-control" >
             <br>
 
             <label for="Tussenvoegsel">Tussenvoegsel</label>
@@ -38,31 +65,31 @@ $db = new DB('localhost', 'root', '', 'project1', 'utf8');
             <br>
 
             <label for="Achternaam">Achternaam</label>
-            <input type="text" name="achternaam" class="form-control" required>
+            <input type="text" name="achternaam" class="form-control" >
             <br>
 
             <label for="E-mail">E-mail</label>
-            <input type="text" name="email" class="form-control" required>
+            <input type="text" name="email" class="form-control" >
             <br>
 
             <label for="Username">Username</label>
-            <input type="text" name="username" class="form-control" required>
-            <br>
-            
-            <label for="password">Wachtwoord</label>
-            <input type="password" name="password" class="form-control" required>
+            <input type="text" name="username" class="form-control" >
             <br>
 
-            <label for="Herhaal-password">Herhaal Wachtwoord</label>
-            <input type="password" name="herhaal-password" class="form-control" required>
+            <label for="Wachtwoord">Wachtwoord</label>
+            <input type="password" name="wachtwoord" class="form-control" >
             <br>
-            
 
-            <input type="submit" name="Registeren" class="btn btn-info" value="Registreren">
-            <button type="button" class="btn btn-link"><a href="index.php">Login?</a></button>
-            <button type="button" class="btn btn-link"><a href="lostpsw.php">Wachtwoord vergeten?</a></button>
-            </form>
+            <label for="Password">Herhaal Wachtwoord</label>
+            <input type="password" name="herhaal-wachtwoord" class="form-control" >
+            <br>
+
+            <input type="submit" name="Registreren" class="btn btn-info" value="Registreren">
+            <a href="index.php" class="btn btn-link" role="button">Login?</a>
+            <a href="lostpsw.php" class="btn btn-link" role="button">Wachtwoord vergeten?</a>
+        </form>
         <br>
     </div>
 </body>
+
 </html>

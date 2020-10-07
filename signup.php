@@ -19,6 +19,7 @@ echo "<script type='text/javascript'>alert('Alle velden zijn vereist');</script>
 
 if (!$error) {
     $voornaam = $_POST["voornaam"];
+    $tussenvoegsel = $_POST["tussenvoegsel"];
     $achternaam = $_POST["achternaam"];
     $email = $_POST["email"];
     $username = $_POST["username"];
@@ -26,9 +27,9 @@ if (!$error) {
 
 
     $db = new DB('localhost', 'root', '', 'project1', 'utf8');
-    $db->execute($voornaam, $_POST["tussenvoegsel"], $achternaam, $email, $username, $wachtwoord);
-    }
+    $db->execute($voornaam, $tussenvoegsel, $achternaam, $email, $username, $wachtwoord);
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -91,5 +92,4 @@ if (!$error) {
         <br>
     </div>
 </body>
-
 </html>

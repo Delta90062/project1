@@ -66,10 +66,10 @@ class DB{
         try {
             $gethash = "SELECT password FROM account WHERE email = :email";
             $statement2 = $this->db->prepare($gethash);
-
+            $email = $_POST["email"];
             $statement2->execute(
                 array(
-                    'email' => $_POST["email"]
+                    'email' => $email
                 )
             );
 
@@ -95,7 +95,7 @@ class DB{
                     header("location:login_succes.php");
                 } 
             }else {
-                echo '<label>Verkeerd wachtwoord of username</label>';
+                echo "<script type='text/javascript'>alert('Verkeerd wachtwoord of username');</script>";
             }
             
         } catch (PDOException $error) {

@@ -4,6 +4,7 @@ session_start();
 include "db.php";
 
 $db = new DB('localhost', 'root', '', 'project1', 'utf8');
+
 ?>
 
 <!DOCTYPE html>
@@ -27,12 +28,13 @@ $db = new DB('localhost', 'root', '', 'project1', 'utf8');
         <h3>PHP Login Pagina</h3><br>
         <form action="" method="post">
 
-            <p>Als je jouw wachtwoord vergeten bent, voer dan hier uw email in en dan sturen wij een mail met een link om uw wachtwoord te veranderen.</p>
+            <p>Wachtwoord vergeten? Voer dan hier uw email in en dan sturen wij een mail met een link om uw wachtwoord te veranderen.</p>
 
             <label for="E-mail">E-mail</label>
             <input type="text" name="email" class="form-control">
             <br>
 
+            <br>
             <input type="submit" name="verstuur" class="btn btn-info" value="Verstuur">
             <button type="button" class="btn btn-link"><a href="signup.php">Registreren?</a></button>
             <button type="button" class="btn btn-link"><a href="index.php">Login?</a></button>

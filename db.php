@@ -62,11 +62,10 @@ class DB{
         }
     }
 
-    public function login(){
+    public function login($email){
         try {
             $gethash = "SELECT password FROM account WHERE email = :email";
             $statement2 = $this->db->prepare($gethash);
-            $email = $_POST["email"];
             $statement2->execute(
                 array(
                     'email' => $email
@@ -99,6 +98,16 @@ class DB{
             }
             
         } catch (PDOException $error) {
+            echo $error->getMessage();
+            exit("An error occured");
+        }
+    }
+    public function databaselog(){
+        $query3 = "SELECT * FROM account";
+        $result = $this->$db->query($query);
+    }
+
+            } catch (PDOException $error) {
             echo $error->getMessage();
             exit("An error occured");
         }

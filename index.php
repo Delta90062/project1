@@ -9,7 +9,7 @@ $db = new DB('localhost', 'root', '', 'project1', 'utf8');
         if (empty($_POST["email"]) || empty($_POST["password"])) {
             echo "<script type='text/javascript'>alert('Alle velden zijn vereist');</script>";
         } else {
-            $db->login();
+            $db->login($_POST["email"]);
         }
     }
 ?>

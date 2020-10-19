@@ -24,10 +24,15 @@ if (!$error) {
     $email = $_POST["email"];
     $username = $_POST["username"];
     $wachtwoord = $_POST["wachtwoord"];
+    $herhaalwachtwoord = $_POST["herhaalwachtwoord"];
 
-
-    $db = new DB('localhost', 'root', '', 'project1', 'utf8');
-    $db->execute($voornaam, $tussenvoegsel, $achternaam, $email, $username, $wachtwoord);
+    if ($wachtwoord == $herhaalwachtwoord) {
+        $db = new DB('localhost', 'root', '', 'project1', 'utf8');
+        $db->execute($voornaam, $tussenvoegsel, $achternaam, $email, $username, $wachtwoord);
+    }   else {
+            echo "<script type='text/javascript'>alert('Wachtwoorden zijn niet hetzelfde');</script>";       
+        }
+    }
 }
 
 ?>
@@ -82,7 +87,7 @@ if (!$error) {
             <br>
 
             <label for="Password">Herhaal Wachtwoord</label>
-            <input type="password" name="herhaal-wachtwoord" class="form-control" >
+            <input type="password" name="herhaalwachtwoord" class="form-control" >
             <br>
 
             <input type="submit" name="Registreren" class="btn btn-info" value="Registreren">

@@ -1,4 +1,4 @@
-DROP DATABASE project1;
+-- DROP DATABASE IF EXISTS project1;
 -- creëert de database 
 CREATE DATABASE project1;
 -- selecteert de project1 database.
@@ -32,14 +32,17 @@ CREATE TABLE persoon (
 );
 
 -- creëert de admin gegevens in account
-INSERT INTO account (email, password, username)
-VALUES ('admin@live.nl', '1234Ss', 'Delta062');
+INSERT INTO account (email, password, username, created, last_updated)
+VALUES ('admin@live.nl', '$2y$10$PfFbpAbExrrDDxSrrseK2eCNHV9.sE6u.Tt.iZxdZKlk/72YNhiRK', 'admin', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 -- creëert de admin gegevens in persoon
-INSERT INTO persoon (voornaam, achternaam)
-VALUES ('Aart','Aloserij');
+INSERT INTO persoon (voornaam, achternaam, created, last_updated)
+VALUES ('Aart','Aloserij', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 -- creëert de admin gegevens in usertype
-INSERT INTO usertype (type)
-VALUES ('Admin');
+INSERT INTO usertype (type, created, last_updated)
+VALUES ('Admin', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+-- creëert de user gegevens in usertype
+INSERT INTO usertype (type, created, last_updated)
+VALUES ('User', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 -- verbindt de id primary key van account met de id foreign key in persoon
 UPDATE persoon 
 SET account_id = (select id from account where email = "admin@live.nl")

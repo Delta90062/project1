@@ -1,7 +1,7 @@
 CREATE TABLE authors (
     id int not null primary key auto_increment,
     first_name varchar(255) not null,
-    last_name varchar(255) not null unique,
+    last_name varchar(255) not null,
     created datetime not null,
     last_updated datetime not null
 );

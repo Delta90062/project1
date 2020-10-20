@@ -102,14 +102,4 @@ class DB{
             exit("An error occured");
         }
     }
-    public function databaselog(){
-        $query3 = "SELECT * FROM account";
-        $result = $this->$db->query($query);
-    }
-
-            } catch (PDOException $error) {
-            echo $error->getMessage();
-            exit("An error occured");
-        }
-    }
 }

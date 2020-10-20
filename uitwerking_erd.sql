@@ -1,26 +1,32 @@
-CREATE TABLE usertype (
+CREATE TABLE authors (
     id int not null primary key auto_increment,
-    type varchar(255) not null,
-    created date not null,
-    last_updated date not null
+    first_name varchar(255) not null,
+    last_name varchar(255) not null unique,
+    created datetime not null,
+    last_updated datetime not null
 );
-CREATE TABLE account (
+CREATE TABLE users (
     id int not null primary key auto_increment,
     username varchar(255) not null,
-    email varchar(255) not null unique,
-    password varchar(255) not null,
-    usertype_id int,
-    foreign key (usertype_id) references usertype(id),
-    created date not null,
-    last_updated date not null
+    created datetime not null,
+    last_updated datetime not null
 );
-CREATE TABLE persoon (
+CREATE TABLE books (
     id int not null primary key auto_increment,
-    voornaam varchar(255) not null,
-    tussenvoegsel varchar(255),
-    achternaam varchar(255) not null,
-    account_id int,
-    foreign key (account_id) references account(id),
-    created date not null,
-    last_updated date not null
+    title varchar(255) not null,
+    author_id int,
+    foreign key (author_id) references authors(id),
+    publishing_year varchar(255),
+    genre varchar(255) not null,
+    created datetime not null,
+    last_updated datetime not null
+);
+CREATE TABLE favourites (
+    id int not null primary key auto_increment,
+    user_id int,
+    foreign key (user_id) references users(id),
+    book_id int,
+    foreign key (book_id) references books(id),
+    created datetime not null,
+    last_updated datetime not null
 );

@@ -11,7 +11,7 @@ class DB{
     private $name;
     private $charset;
 <<<<<<< HEAD
-1
+
 =======
 
 >>>>>>> 7932359518481ff72b3a6dc141bff988d597e69a

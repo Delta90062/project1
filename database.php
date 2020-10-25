@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <?php 
+=======
+<?php
+>>>>>>> 7932359518481ff72b3a6dc141bff988d597e69a
 // database.php
 class DB{
     private $host;
@@ -6,7 +10,11 @@ class DB{
     private $pass;
     private $name;
     private $charset;
+<<<<<<< HEAD
 1
+=======
+
+>>>>>>> 7932359518481ff72b3a6dc141bff988d597e69a
     protected $dbh; // dit is de verbinding met de database
     protected $resultSet; // hierin komen de resultaten te staan van een query
 

@@ -7,18 +7,19 @@ USE project1;
 CREATE TABLE usertype (
     id int not null primary key auto_increment,
     type varchar(255) not null,
-    created date not null,
-    last_updated date not null
+    created datetime not null,
+    updated datetime not null
 );
 CREATE TABLE account (
     id int not null primary key auto_increment,
     username varchar(255) not null,
     email varchar(255) not null unique,
     password varchar(255) not null,
+    usertype INT NOT NULL,
     usertype_id int,
     foreign key (usertype_id) references usertype(id),
-    created date not null,
-    last_updated date not null
+    created datetime not null,
+    updated datetime not null
 );
 CREATE TABLE persoon (
     id int not null primary key auto_increment,
@@ -27,21 +28,21 @@ CREATE TABLE persoon (
     achternaam varchar(255) not null,
     account_id int,
     foreign key (account_id) references account(id),
-    created date not null,
-    last_updated date not null
+    created datetime not null,
+    updated datetime not null
 );
 
 -- creëert de admin gegevens in account
-INSERT INTO account (email, password, username, created, last_updated)
+INSERT INTO account (email, password, username, created, updated)
 VALUES ('admin@live.nl', '$2y$10$PfFbpAbExrrDDxSrrseK2eCNHV9.sE6u.Tt.iZxdZKlk/72YNhiRK', 'admin', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 -- creëert de admin gegevens in persoon
-INSERT INTO persoon (voornaam, achternaam, created, last_updated)
+INSERT INTO persoon (voornaam, achternaam, created, updated)
 VALUES ('Aart','Aloserij', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 -- creëert de admin gegevens in usertype
-INSERT INTO usertype (type, created, last_updated)
+INSERT INTO usertype (type, created, updated)
 VALUES ('Admin', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 -- creëert de user gegevens in usertype
-INSERT INTO usertype (type, created, last_updated)
+INSERT INTO usertype (type, created, updated)
 VALUES ('User', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 -- verbindt de id primary key van account met de id foreign key in persoon
 UPDATE persoon 

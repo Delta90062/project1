@@ -15,7 +15,6 @@ CREATE TABLE account (
     username varchar(255) not null,
     email varchar(255) not null unique,
     password varchar(255) not null,
-    usertype INT NOT NULL,
     usertype_id int,
     foreign key (usertype_id) references usertype(id),
     created datetime not null,

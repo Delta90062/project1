@@ -25,7 +25,7 @@
     </div>
 
     <div class="products mt-2">
-        <h4 class="text-center">Products</h4>
+        <h4 class="text-center">Home</h4>
         <div class="container">
             <div class="row">
                 <div class="col">

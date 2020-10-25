@@ -22,7 +22,7 @@
 
 <div class="bs-example">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-        <a href="#" class="navbar-brand">Flowerpower</a>
+        <a href="#" class="navbar-brand">Rent a Car</a>
         <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -30,8 +30,6 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav">
                 <a href="index.php" class="nav-item nav-link active">Home</a>
-                <a href="#" class="nav-item nav-link">About</a>
-                <a href="#" class="nav-item nav-link">Products</a>
             </div>
             <form class="form-inline ml-auto">
                 <div class="navbar-nav">
@@ -47,6 +45,7 @@
                     }else{
                         // if the user is not logged in echo the login page link inside the nav
                         echo '<a href="login.php" class="nav-item nav-link">Login</a>';
+                        echo '<a href="signup.php" class="nav-item nav-link">Registeren</a>';
                     }
                     ?>
                 </div>

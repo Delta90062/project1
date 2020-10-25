@@ -60,7 +60,7 @@ $validation->validateSignup();
             <br>
 
             <input type="submit" name="Registreren" class="btn btn-info" value="Registreren">
-            <a href="index.php" class="btn btn-link" role="button">Login?</a>
+            <a href="login.php" class="btn btn-link" role="button">Login?</a>
             <a href="lostpsw.php" class="btn btn-link" role="button">Wachtwoord vergeten?</a>
         </form>
         <br>

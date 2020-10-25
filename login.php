@@ -55,6 +55,7 @@ if (isset($_POST["login"])) {
 
             <input type="submit" name="login" class="btn btn-info" value="Login">
             <a href="signup.php" class="btn btn-link" role="button">Registreren?</a>
+            <a href="lostpsw.php" class="btn btn-link" role="button">Wachtwoord vergeten?</a>
         </form>
     </div>
 </body>

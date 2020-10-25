@@ -34,8 +34,8 @@ include "database.php";
 
             <br>
             <input type="submit" name="verstuur" class="btn btn-info" value="Verstuur">
-            <button type="button" class="btn btn-link"><a href="signup.php">Registreren?</a></button>
             <button type="button" class="btn btn-link"><a href="login.php">Login?</a></button>
+            <button type="button" class="btn btn-link"><a href="signup.php">Registreren?</a></button>
         </form>
     </div>
 </body>

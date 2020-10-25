@@ -1,4 +1,4 @@
-<?php
+<?php 
 // database.php
 class DB{
     private $host;
@@ -6,7 +6,7 @@ class DB{
     private $pass;
     private $name;
     private $charset;
-
+1
     protected $dbh; // dit is de verbinding met de database
     protected $resultSet; // hierin komen de resultaten te staan van een query
 
